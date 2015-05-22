@@ -57,7 +57,7 @@ class Map(object):
     def opening_scene(self):
         pass
 
-
+#Start the game
 a_map = Map('rock')
 a_game = Engine(a_map)
 a_game.play()
