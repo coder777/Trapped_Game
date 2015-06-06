@@ -39,6 +39,27 @@ class Sit(Command):
     def run(self, list_of_arguments):
         print "You decide to sit & rest and think of your next move."
 
+
+class Take(Command):
+    def __init__(self,inventory,objects_in_room):
+        super(Take,self).__init__("take")
+        self.objects_in_room = objects_in_room
+        self.inventory = inventory
+
+    def run(self, list_of_arguments):
+        if len(list_of_arguments) > 0:
+            object_be_taken = list_of_arguments[0]
+            if self.objects_in_room.find_object(object_be_taken):
+                if object_be_taken.can_be_taken():
+                    print "You take {0}".format(object_be_taken)
+                    self.inventory.add(object_be_taken)
+                else:
+                    print "You can't take {0}.".format(objects_be_taken)
+            else:
+                print "I can't find {0} to take.".format(object_be_taken)
+        else:
+            print "Not sure what you want take."
+
 class Climb(Command):
     def __init__(self,inventory,object_in_room):
         super(Climb,self).__init__("climb")
