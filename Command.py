@@ -29,7 +29,7 @@ class Panic(Command):
         super(Panic,self).__init__("panic")
         
     def run(self, list_of_arguments):
-        print "You run around in a circle, shouting into the void."
+        print "You run around in a circle, shouting into the void. Panic at the disco!"
 
 
 class Sit(Command):
