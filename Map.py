@@ -17,6 +17,8 @@ class Map(object):
         
     def move_back_to_start(self):
         self.current_room = -1
+        self.path[0].done = False
+        self.path[0].death = False
         
     def move_to_end(self):
         self.current_room = len(self.path)
