@@ -17,7 +17,7 @@ class Room(object):
         self.commands.do_command(command.split(" ")[0].lower(),command.split(" ")[1:])
     
     def exit_room(self):
-        return True
+        return self.done
     
     def end_room(self):
         return False
@@ -33,8 +33,6 @@ class FirstRoom(Room):
         self.done = True
         super(FirstRoom,self).procces_commands(command)
 
-    def exit_room(self):
-        return self.done
     
 class EndRoom(Room):
     def __init__(self):
