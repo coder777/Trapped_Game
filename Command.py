@@ -32,8 +32,16 @@ class Panic(Command):
         print "You run around in a circle, shouting into the void."
 
 class Climb(Command):
-    def __init__(self):
+    def __init__(self,inventory,object_in_room):
         super(Climb,self).__init__("climb")
+        self.objects_in_room = object_in_room
+        self.inventory = inventory
         
-    def run(self, *args):
+    def run(self,*args):
+        if len(args) > 0:
+            object_to_climb = args[0]
+            if object_to_climb in self.objects_in_room:
+                print "You climb {0}".format(object_to_climb)
+        else:
+            print "I moved my fit up an empty space"
         print "You climbed. What do you have and what do want to do?"
