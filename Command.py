@@ -37,3 +37,11 @@ class Climb(Command):
         
     def run(self, *args):
         print "You climbed. What do you have and what do want to do?"
+        
+class Open(Command):
+    def __init__(self):
+        super(Climb,self).__init__("open")
+        
+    def run(self, *args):
+        print "You are Opening."
+        

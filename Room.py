@@ -1,5 +1,5 @@
 from Command import Commands, Command, Panic, Climb
-from Room_Object import RoomObjects, RoomObject, KeyRoomOne, Chair,VLrock
+from Room_Object import RoomObjects, RoomObject, KeyRoomOne, Chair, VLrock
 
 
 class Room(object):
@@ -30,7 +30,7 @@ class Room(object):
 class FirstRoom(Room):
     def __init__(self):
 
-        commands = Commands(Command("take"),Panic(), Climb())
+        commands = Commands(Command("take"),Panic(), Climb(), Use(), Open())
         room_objects = RoomObjects(KeyRoomOne(),RoomObject("door","a thick metal panel with a handle"), VLrock(), Chair())
         super(FirstRoom, self).__init__(commands,room_objects)
         self.done = False
