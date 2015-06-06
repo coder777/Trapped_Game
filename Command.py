@@ -53,7 +53,7 @@ class Take(Command):
                 if self.objects_in_room.get_object(object_be_taken).can_be_taken():
                     print "You take {0}".format(object_be_taken)
                     self.inventory.add(self.objects_in_room.get_object(object_be_taken))
-                    print "you know have in your inventory: {0}".format(self.inventory)
+                    print "you now have in your inventory: {0}".format(self.inventory)
                 else:
                     print "You can't take {0}.".format(object_be_taken)
             else:
@@ -77,6 +77,8 @@ class Climb(Command):
                     print "You see a shiny key on top of the large rock."
                     self.objects_in_room.get_object("key").taken = True
                     
+                else:
+                    print "You can't climb {0}.".format(object_to_climb)
         else:
-            print "You can't climb {0}.".format(object_to_climb)
+            print "You must choose an object to climb"
 
