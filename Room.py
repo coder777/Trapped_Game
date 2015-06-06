@@ -7,14 +7,16 @@ class Room(object):
         self.commands = commands
         self.room_objects = room_objects
         self.inventory = inventory
-        self.room_message = ""
+        self.room_message = """You have woken up in a dank room. 
+        Any resemblance to the Austin Panic Room is purely coincidental.
+        You see a Very Large Rock, and a rusty metal Chair. The large gothic Door is locked."""
         self.done = True
         self.death = False
         
     def enter_room(self):
         print self.room_message
-        print "Room has: {0}".format(self.room_objects)
-        print "Commands: {0}".format(self.commands)
+        print "The room has: {0}".format(self.room_objects)
+        print "The commands you can use are: {0}".format(self.commands)
         
     def procces_commands(self,command):
         self.commands.do_command(command.split(" ")[0].lower(),command.split(" ")[1:])
