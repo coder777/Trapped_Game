@@ -1,7 +1,10 @@
 class Commands(object):
     def __init__(self,*args):
-        self.commands = {arg.get_tag().lowercase():arg for arg in args}
+        self.commands = {arg.get_name().lowercase():arg for arg in args}
 
+    def __str__(self, *args, **kwargs):
+        return " ".join(self.commands)
+    
     def do_command(self,tag_name,args=""):
         if tag_name in self.commands:
             self.commands[tag_name].run(args)
@@ -9,13 +12,16 @@ class Commands(object):
             print "I don't understand {0}".format(tag_name)
             
 class Command(object):
-    def __init__(self, tag):
-        self.tag = ""
+    def __init__(self, name):
+        self.name = name
 
-    def get_tag(self):
-        return self.tag
+    def __str__(self, *args, **kwargs):
+        return self.name
     
-    def run(self, args=""):
+    def get_name(self):
+        return self.name
+    
+    def run(self, *args):
         pass
     
 
