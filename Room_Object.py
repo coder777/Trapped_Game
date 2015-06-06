@@ -12,10 +12,11 @@ class RoomObjects(object):
             return True
             
 class RoomObject(object):
-    def __init__(self, name, description, taken):
+    def __init__(self, name, description, taken, climbable):
         self.name = name
         self.description = description
         self.taken = taken
+        self.climbable = climbable
         
     def __str__(self, *args, **kwargs):
         return self.description
@@ -26,18 +27,21 @@ class RoomObject(object):
     def can_be_taken(self):
         return self.taken
 
+    def can_climb(self):
+        return self.climbable
+
 class KeyRoomOne(RoomObject):
     def __init__(self):
-        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.", True)
+        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.", True, False)
     
 class VLrock(RoomObject):
     def __init__(self):
-        super(VLrock,self).__init__("Very large rock","A very large rock as tall as you!", False)
+        super(VLrock,self).__init__("Very large rock","A very large rock as tall as you!", False, False)
 
 class Chair(RoomObject):
     def __init__(self):
-        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", False)
+        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", True, True)
 
 class Door(RoomObject):
     def __init__(self):
-        super(Door,self).__init__("Door", "A large gothic door", False)
+        super(Door,self).__init__("Door", "A large gothic door", False, False)
