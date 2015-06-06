@@ -33,11 +33,12 @@ class Panic(Command):
 
 
 class Sit(Command):
-   def __init__(self):
-	super(Sit,self).__init__("sit")
+    def __init__(self):
+        super(Sit,self).__init__("sit")
 
-   def run(self, list_of_arguments):
-	print "You decide to sit & rest and think of your next move."
+    def run(self, list_of_arguments):
+        print "You decide to sit & rest and think of your next move."
+
 
 class Take(Command):
     def __init__(self,inventory,objects_in_room):
@@ -64,12 +65,15 @@ class Climb(Command):
         super(Climb,self).__init__("climb")
         self.objects_in_room = object_in_room
         self.inventory = inventory
-        
-    def run(self,*args):
-        if len(args) > 0:
-            object_to_climb = args[0]
-            if object_to_climb in self.objects_in_room:
-                print "You climb {0}".format(object_to_climb)
+
+    def run(self,list_of_arguments):
+        #import pdb; pdb.set_trace()
+        if len(list_of_arguments) > 0:
+            object_to_climb = list_of_arguments[0]
+            
+            if self.objects_in_room.find_object(object_to_climb):
+                print "You climb "#{0}".format(object_to_climb)
         else:
             print "I moved my fit up an empty space"
         print "You climbed. What do you have and what do want to do?"
+
