@@ -22,6 +22,6 @@ class RoomObject(object):
     
 class KeyRoomOne(RoomObject):
     def __init__(self):
-        super(KeyRoomOne,self).__init__("keyroomone","A bright shiny brass key.")
+        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.")
     
 
