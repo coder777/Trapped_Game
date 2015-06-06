@@ -96,6 +96,8 @@ class Open(Command):
             if self.objects_in_room.find_object(object_to_open):
                 print "You open {0}".format(object_to_open)
                 #if self.objects_in_room.get_object(object_to_open).can_open():
-                print "You successfully open the door. You won!"
+                print "You successfully opened the door. You won!"
                 self.done = True
+                exit(0)
+                
                     
