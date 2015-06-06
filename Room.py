@@ -37,8 +37,6 @@ class FirstRoom(Room):
         self.done = False
         
     def procces_commands(self, command):
-        self.done = True
-        #self.death = True
         super(FirstRoom,self).procces_commands(command)
 
     
