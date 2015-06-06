@@ -30,3 +30,10 @@ class Panic(Command):
         
     def run(self, *args):
         print "You run around in a circle, shouting into the void."
+
+class Climb(Command):
+    def __init__(self):
+        super(Climb,self).__init__("climb")
+        
+    def run(self, *args):
+        print "You climbed. What do you have and what do want to do?"
