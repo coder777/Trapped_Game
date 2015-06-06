@@ -1,4 +1,4 @@
-from Command import Commands, Command, Panic, Climb, Sit, Take
+from Command import Commands, Command, Panic, Climb, Sit, Take, Open
 from Room_Object import RoomObjects, RoomObject, KeyRoomOne, Chair, VLrock, Door
 
 
@@ -32,7 +32,7 @@ class FirstRoom(Room):
 
     def __init__(self,inventory):
         room_objects = RoomObjects(KeyRoomOne(),VLrock(),Chair(),Door())
-        commands = Commands(Take(inventory,room_objects),Panic(), Sit(), Climb(inventory,room_objects))
+        commands = Commands(Take(inventory,room_objects),Panic(), Sit(), Climb(inventory,room_objects), Open(inventory, room_objects))
         super(FirstRoom, self).__init__(commands,room_objects,inventory)
         self.done = False
         

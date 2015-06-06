@@ -80,3 +80,20 @@ class Climb(Command):
         else:
             print "You can't climb {0}.".format(object_to_climb)
 
+
+class Open(Command):
+    def __init__(self,inventory,objects_in_room):
+        super(Open,self).__init__("open")
+        self.inventory = inventory
+        self.objects_in_room = objects_in_room
+
+    def run(self, list_of_arguments):
+        if len(list_of_arguments) > 0:
+            object_to_open = list_of_arguments[0]
+
+            if self.objects_in_room.find_object(object_to_open):
+                print "You open {0}".format(object_to_open)
+                #if self.objects_in_room.get_object(object_to_open).can_open():
+                print "You successfully open the door. You won!"
+                self.done = True
+                    
