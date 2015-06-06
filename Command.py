@@ -21,23 +21,23 @@ class Command(object):
     def get_name(self):
         return self.name
     
-    def run(self, *args):
+    def run(self, list_of_arguments):
         pass
     
 class Panic(Command):
     def __init__(self):
         super(Panic,self).__init__("panic")
         
-    def run(self, *args):
+    def run(self, list_of_arguments):
         print "You run around in a circle, shouting into the void."
 
 
 class Sit(Command):
-   def __init__(self):
-	super(Sit,self).__init__("sit")
+    def __init__(self):
+        super(Sit,self).__init__("sit")
 
-   def run(self, *args):
-	print "You decide to sit & rest and think of your next move."
+    def run(self, list_of_arguments):
+        print "You decide to sit & rest and think of your next move."
 
 class Climb(Command):
     def __init__(self,inventory,object_in_room):
@@ -45,9 +45,8 @@ class Climb(Command):
         self.objects_in_room = object_in_room
         self.inventory = inventory
 
-    def run(self,*args):
+    def run(self,list_of_arguments):
         #import pdb; pdb.set_trace()
-        list_of_arguments = args[0]
         if len(list_of_arguments) > 0:
             object_to_climb = list_of_arguments[0]
             

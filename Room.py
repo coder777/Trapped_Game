@@ -31,7 +31,6 @@ class Room(object):
 class FirstRoom(Room):
 
     def __init__(self,inventory):
-
         room_objects = RoomObjects(KeyRoomOne(),VLrock(),RoomObject("door","a thick metal panel with a handle"),Chair())
         commands = Commands(Command("take"),Panic(), Sit(), Climb(inventory,room_objects))
         super(FirstRoom, self).__init__(commands,room_objects,inventory)
