@@ -1,6 +1,6 @@
 class RoomObjects(object):
     def __init__(self,*args):
-        self.room_objects = {arg.get_name().lowercase():arg for arg in args}
+        self.room_objects = {arg.get_name().lower():arg for arg in args}
 
     def __str__(self, *args, **kwargs):
         return " ".join(self.room_objects)

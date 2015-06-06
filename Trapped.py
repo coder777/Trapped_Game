@@ -1,5 +1,5 @@
 from sys import exit
-from random import randint
+from Room import FirstRoom, EndRoom
 
 class Scene(object):
 
@@ -47,17 +47,30 @@ class Snakes(Scene):
 
 
 class Map(object):
+    def __init__(self, *args):
+        if len(args) > 0:
+            self.path = args
+            self.current_room = -1
+        else:
+            return EndRoom()
 
-    def __init__(self, start_scene):
-        pass
-
-    def next_scene(self, scene_name):
-        pass
-
-    def opening_scene(self):
-        pass
+    def next_scene(self):
+        self.current_room = self.current_room+1
+        if self.current_room == len(self.path):
+            return EndRoom()
+        else:
+            return self.path[self.current_room]
 
 #Start the game
-a_map = Map('rock')
-a_game = Engine(a_map)
-a_game.play()
+a_map = Map(FirstRoom())
+current_room = a_map.next_scene()
+while not current_room.end_room():
+    current_room.enter_room()
+    while not current_room.exit_room():
+        pass
+    current_room = a_map.next_scene()
+current_room.enter_room()
+
+#room = a_map.next_scene()
+#a_game = Engine(a_map)
+#a_game.play()
