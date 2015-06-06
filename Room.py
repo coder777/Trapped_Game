@@ -1,4 +1,4 @@
-from Command import Commands, Command, Panic, Climb
+from Command import Commands, Command, Panic, Climb, Sit
 from Room_Object import RoomObjects, RoomObject, KeyRoomOne, Chair, VLrock
 
 
@@ -31,9 +31,10 @@ class Room(object):
 class FirstRoom(Room):
 
     def __init__(self,inventory):
+
         room_objects = RoomObjects(KeyRoomOne(),VLrock(),RoomObject("door","a thick metal panel with a handle"),Chair())
-        commands = Commands(Command("take"),Panic(), Climb(inventory,room_objects))
-        super(FirstRoom, self).__init__(commands,room_objects, inventory)
+        commands = Commands(Command("take"),Panic(), Sit(), Climb(inventory,room_objects))
+        super(FirstRoom, self).__init__(commands,room_objects,inventory)
         self.done = False
         
     def procces_commands(self, command):

@@ -31,6 +31,14 @@ class Panic(Command):
     def run(self, *args):
         print "You run around in a circle, shouting into the void."
 
+
+class Sit(Command):
+   def __init__(self):
+	super(Sit,self).__init__("sit")
+
+   def run(self, *args):
+	print "You decide to sit & rest and think of your next move."
+
 class Climb(Command):
     def __init__(self,inventory,object_in_room):
         super(Climb,self).__init__("climb")
