@@ -67,7 +67,8 @@ current_room = a_map.next_scene()
 while not current_room.end_room():
     current_room.enter_room()
     while not current_room.exit_room():
-        pass
+        string_from_input = raw_input("What do you want do: " )
+        current_room.procces_commands(string_from_input)
     current_room = a_map.next_scene()
 current_room.enter_room()
 

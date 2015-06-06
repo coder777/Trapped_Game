@@ -6,14 +6,15 @@ class Room(object):
         self.commands = commands
         self.room_objects = room_objects
         self.room_message = ""
-    
+        self.done = True
+        
     def enter_room(self):
         print self.room_message
         print "Room has: {0}".format(self.room_objects)
         print "Commands: {0}".format(self.commands)
         
     def procces_commands(self,command):
-        self.commands(command.split(" ")[0].lower(),command.split(" ")[1:])
+        self.commands.do_command(command.split(" ")[0].lower(),command.split(" ")[1:])
     
     def exit_room(self):
         return True
@@ -26,7 +27,15 @@ class FirstRoom(Room):
         commands = Commands(Command("take"),Command("panic"))
         room_objects = RoomObjects(RoomObject("key","a shiny key"),RoomObject("door","a thick metal panel with a handle"))
         super(FirstRoom, self).__init__(commands,room_objects)
+        self.done = False
         
+    def procces_commands(self, command):
+        self.done = True
+        super(FirstRoom,self).procces_commands(command)
+
+    def exit_room(self):
+        return self.done
+    
 class EndRoom(Room):
     def __init__(self):
         self.commands = None
