@@ -75,7 +75,7 @@ class Climb(Command):
                 if self.objects_in_room.get_object(object_to_climb).climbable:
                     print "You climb {0}".format(object_to_climb)
                     print "You see a shiny key on top of the large rock."
-                    self.objects_in_room.get_object("key_room_one").taken = True
+                    self.objects_in_room.get_object("key").taken = True
                     
         else:
             print "You can't climb {0}.".format(object_to_climb)
