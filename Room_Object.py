@@ -22,13 +22,9 @@ class RoomObject(object):
     
 class KeyRoomOne(RoomObject):
     def __init__(self):
-<<<<<<< HEAD
-        super(KeyRoomOne,self).__init__("keyroomone","A bright shiny brass key.")
-=======
+
         super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.")
     
->>>>>>> 470b398a2e2444f4507bd0cf5b5e67294137fb52
-
 class Chair(RoomObject):
     def __init__(self):
         super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.")
