@@ -53,4 +53,3 @@ class Climb(Command):
         else:
             print "I moved my fit up an empty space"
         print "You climbed. What do you have and what do want to do?"
->>>>>>> b07c04f6f08b3ebe74888d56c64c79006618707c
