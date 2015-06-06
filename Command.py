@@ -50,9 +50,9 @@ class Take(Command):
         if len(list_of_arguments) > 0:
             object_be_taken = list_of_arguments[0]
             if self.objects_in_room.find_object(object_be_taken):
-                if object_be_taken.can_be_taken():
+                if self.objects_in_room.get_object(object_be_taken).can_be_taken():
                     print "You take {0}".format(object_be_taken)
-                    self.inventory.add(object_be_taken)
+                    self.inventory.add(self.objects_in_room.get_object(object_be_taken))
                     print "you know have in your inventory: {0}".format(self.inventory)
                 else:
                     print "You can't take {0}.".format(object_be_taken)
