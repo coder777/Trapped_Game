@@ -41,19 +41,11 @@ class KeyRoomOne(RoomObject):
     
 class VLrock(RoomObject):
     def __init__(self):
-<<<<<<< HEAD
         super(VLrock,self).__init__("Very large rock","A very large rock as tall as you!", False, False)
 
 class Chair(RoomObject):
     def __init__(self):
         super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", True, True)
-=======
-        super(VLrock,self).__init__("Very_large_rock","A very large rock as tall as you!", False)
-
-class Chair(RoomObject):
-    def __init__(self):
-        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", True)
->>>>>>> e2ea28912d68f5af574ba356ad99618b02f50a49
 
 class Door(RoomObject):
     def __init__(self):
