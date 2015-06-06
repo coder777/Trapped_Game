@@ -10,6 +10,11 @@ class RoomObjects(object):
             print "I don't see {0}".format(tag_name)
         else:
             return True
+    
+    def get_object(self,tag_name):
+        if tag_name in self.room_objects:
+            return self.room_objects[tag_name]
+        return None
             
 class RoomObject(object):
     def __init__(self, name, description, taken):
@@ -32,8 +37,8 @@ class KeyRoomOne(RoomObject):
     
 class VLrock(RoomObject):
     def __init__(self):
-        super(VLrock,self).__init__("Very large rock","A very large rock as tall as you!", False)
+        super(VLrock,self).__init__("Very_large_rock","A very large rock as tall as you!", False)
 
 class Chair(RoomObject):
     def __init__(self):
-        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", False)
+        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", True)
