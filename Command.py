@@ -32,16 +32,20 @@ class Panic(Command):
         print "You run around in a circle, shouting into the void."
 
 class Climb(Command):
-    def __init__(self):
+    def __init__(self,inventory,object_in_room):
         super(Climb,self).__init__("climb")
-        
-    def run(self, *args):
+        self.objects_in_room = object_in_room
+        self.inventory = inventory
+
+    def run(self,*args):
+        #import pdb; pdb.set_trace()
+        list_of_arguments = args[0]
+        if len(list_of_arguments) > 0:
+            object_to_climb = list_of_arguments[0]
+            
+            if self.objects_in_room.find_object(object_to_climb):
+                print "You climb "#{0}".format(object_to_climb)
+        else:
+            print "I moved my fit up an empty space"
         print "You climbed. What do you have and what do want to do?"
-        
-class Open(Command):
-    def __init__(self):
-        super(Climb,self).__init__("open")
-        
-    def run(self, *args):
-        print "You are Opening."
-        
+
