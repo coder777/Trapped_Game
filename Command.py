@@ -53,8 +53,9 @@ class Take(Command):
                 if object_be_taken.can_be_taken():
                     print "You take {0}".format(object_be_taken)
                     self.inventory.add(object_be_taken)
+                    print "you know have in your inventory: {0}".format(self.inventory)
                 else:
-                    print "You can't take {0}.".format(objects_be_taken)
+                    print "You can't take {0}.".format(object_be_taken)
             else:
                 print "I can't find {0} to take.".format(object_be_taken)
         else:
