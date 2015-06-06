@@ -72,7 +72,7 @@ class Climb(Command):
         if len(list_of_arguments) > 0:
             object_to_climb = list_of_arguments[0]
             if self.objects_in_room.find_object(object_to_climb):
-                if self.objects_in_room.get_object(object_to_climb).climbable():
+                if self.objects_in_room.get_object(object_to_climb).climbable:
                     print "You climb {0}".format(object_to_climb)
                     print "You see a shiny key on top of the large rock."
                     self.objects_in_room.get_object("key_room_one").taken = True

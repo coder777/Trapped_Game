@@ -3,7 +3,7 @@ class Inventory(object):
         self.inventory = {}
     
     def __str__(self, *args, **kwargs):
-        import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace()
         return "You have {0}".format(" ".join(list(self.inventory)))
     
     def add(self,room_object):
