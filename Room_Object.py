@@ -37,7 +37,7 @@ class RoomObject(object):
 
 class KeyRoomOne(RoomObject):
     def __init__(self):
-        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.", True, False)
+        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.", False, False)
     
 class VLrock(RoomObject):
     def __init__(self):

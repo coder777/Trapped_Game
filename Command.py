@@ -68,17 +68,15 @@ class Climb(Command):
         self.inventory = inventory
 
     def run(self,list_of_arguments):
-        #import pdb; pdb.set_trace()
+        #import pdb; pdb.set_trace() <---to debug
         if len(list_of_arguments) > 0:
             object_to_climb = list_of_arguments[0]
-            
             if self.objects_in_room.find_object(object_to_climb):
-                print "You climb {0}".format(object_to_climb)
-                if 'chair' in object_to_climb:
+                if self.objects_in_room.get_object(object_to_climb).climbable():
+                    print "You climb {0}".format(object_to_climb)
                     print "You see a shiny key on top of the large rock."
-               
+                    self.objects_in_room.get_object("key_room_one").taken = True
                     
         else:
-            print "I moved my fit up an empty space"
-        print "You climbed. What do you have and what do want to do?"
+            print "You can't climb {0}.".format(object_to_climb)
 
