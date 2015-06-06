@@ -44,7 +44,7 @@ class EndRoom(Room):
     def __init__(self):
         self.commands = None
         self.room_objects = None
-        self.room_message = "Game Over"
+        self.room_message = "You've escaped! Woot!"
         
     def enter_room(self):
         print self.room_message
