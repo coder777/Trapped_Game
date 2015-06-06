@@ -8,6 +8,8 @@ class RoomObjects(object):
     def find_object(self,tag_name):
         if tag_name not in self.room_objects:
             print "I don't see {0}".format(tag_name)
+        else:
+            return True
             
 class RoomObject(object):
     def __init__(self, name, description):

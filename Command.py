@@ -51,7 +51,9 @@ class Climb(Command):
             object_to_climb = list_of_arguments[0]
             
             if self.objects_in_room.find_object(object_to_climb):
-                print "You climb "#{0}".format(object_to_climb)
+                print "You climb {0}".format(object_to_climb)
+               
+                    
         else:
             print "I moved my fit up an empty space"
         print "You climbed. What do you have and what do want to do?"
