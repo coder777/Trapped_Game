@@ -52,6 +52,8 @@ class Climb(Command):
             
             if self.objects_in_room.find_object(object_to_climb):
                 print "You climb {0}".format(object_to_climb)
+                if 'chair' in object_to_climb:
+                    print "You see a shiny key on top of the large rock."
                
                     
         else:
