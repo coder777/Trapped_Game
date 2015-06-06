@@ -7,6 +7,7 @@ class Room(object):
         self.room_objects = room_objects
         self.room_message = ""
         self.done = True
+        self.death = False
         
     def enter_room(self):
         print self.room_message
@@ -21,6 +22,9 @@ class Room(object):
     
     def end_room(self):
         return False
+    
+    def death_occured(self):
+        return self.death
     
 class FirstRoom(Room):
     def __init__(self):

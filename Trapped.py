@@ -56,10 +56,16 @@ class Map(object):
 
     def next_scene(self):
         self.current_room = self.current_room+1
-        if self.current_room == len(self.path):
+        if self.current_room >= len(self.path):
             return EndRoom()
         else:
             return self.path[self.current_room]
+        
+    def move_back_to_start(self):
+        self.current_room = -1
+        
+    def move_to_end(self):
+        self.current_room = len(self.path)
 
 #Start the game
 a_map = Map(FirstRoom())
@@ -67,6 +73,9 @@ current_room = a_map.next_scene()
 while not current_room.end_room():
     current_room.enter_room()
     while not current_room.exit_room():
+        if current_room.death_occured():
+            print "You have died"
+            break
         string_from_input = raw_input("What do you want do: " )
         current_room.procces_commands(string_from_input)
     current_room = a_map.next_scene()
