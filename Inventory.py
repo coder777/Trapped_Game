@@ -3,18 +3,17 @@ class Inventory(object):
         self.inventory = {}
     
     def __str__(self, *args, **kwargs):
-        import pdb; pdb.set_trace()
-        return "You have {0}".format(" ".join(list(self.inventory)))
+        return "{0}".format(" ".join(list(self.inventory)))
     
     def add(self,room_object):
         if room_object.get_name() in self.inventory:
-            self.inventory[room_object].add()
+            self.inventory[room_object.get_name()].add()
         else:
-            self.inventory[room_object] = InventoryItem(room_object.get_name(),1)
+            self.inventory[room_object.get_name()] = InventoryItem(room_object,1)
   
     def remove(self,room_object):
         if room_object.get_name() in self.inventory:
-            self.inventory[room_object].remove()
+            self.inventory[room_object.get_name()].remove()
     
     def has(self,room_object):
         if room_object.get_name() in self.inventory:
