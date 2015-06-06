@@ -1,4 +1,4 @@
-from Command import Commands, Command
+from Command import Commands, Command, Panic
 from Room_Object import RoomObjects, RoomObject
 
 class Room(object):
@@ -28,13 +28,14 @@ class Room(object):
     
 class FirstRoom(Room):
     def __init__(self):
-        commands = Commands(Command("take"),Command("panic"))
+        commands = Commands(Command("take"),Panic())
         room_objects = RoomObjects(RoomObject("key","a shiny key"),RoomObject("door","a thick metal panel with a handle"))
         super(FirstRoom, self).__init__(commands,room_objects)
         self.done = False
         
     def procces_commands(self, command):
         self.done = True
+        #self.death = True
         super(FirstRoom,self).procces_commands(command)
 
     

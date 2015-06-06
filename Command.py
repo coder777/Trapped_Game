@@ -24,4 +24,9 @@ class Command(object):
     def run(self, *args):
         pass
     
-
+class Panic(Command):
+    def __init__(self):
+        super(Panic,self).__init__("panic")
+        
+    def run(self, *args):
+        print "You run around in a circle"
