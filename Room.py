@@ -1,10 +1,12 @@
-from Command import Commands, Command, Panic
-from Room_Object import RoomObjects, RoomObject, KeyRoomOne, Chair,VLrock
+from Command import Commands, Command, Panic, Climb, Sit
+from Room_Object import RoomObjects, RoomObject, KeyRoomOne, Chair, VLrock
+
 
 class Room(object):
-    def __init__(self,commands,room_objects):
+    def __init__(self,commands,room_objects,inventory):
         self.commands = commands
         self.room_objects = room_objects
+        self.inventory = inventory
         self.room_message = ""
         self.done = True
         self.death = False
@@ -27,9 +29,10 @@ class Room(object):
         return self.death
     
 class FirstRoom(Room):
-    def __init__(self):
-        commands = Commands(Command("take"),Panic(),Sit())
+    def __init__(self,inventory):
+
         room_objects = RoomObjects(KeyRoomOne(),VLrock(),RoomObject("door","a thick metal panel with a handle"),Chair())
+        commands = Commands(Command("take"),Panic(), Sit(), Climb(inventory,room_objects))
         super(FirstRoom, self).__init__(commands,room_objects)
         self.done = False
         

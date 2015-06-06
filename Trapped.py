@@ -1,9 +1,10 @@
 from Room import FirstRoom
 from Map import Map
-
+from Inventory import Inventory
 
 #Start the game
-a_map = Map(FirstRoom())
+inventory = Inventory()
+a_map = Map(FirstRoom(inventory))
 current_room = a_map.next_scene()
 while not current_room.end_room():
     current_room.enter_room()
