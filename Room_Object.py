@@ -26,7 +26,7 @@ class KeyRoomOne(RoomObject):
     
 class VLrock(RoomObject):
     def __init__(self):
-	super(VLrock,self).__init__("Very large rock","A very large rock as tall as you are which the key is on top of.")
+	super(VLrock,self).__init__("Very_large_rock","A very large rock as tall as you are which the key is on top of.")
 
 class Chair(RoomObject):
     def __init__(self):
