@@ -10,24 +10,28 @@ class RoomObjects(object):
             print "I don't see {0}".format(tag_name)
             
 class RoomObject(object):
-    def __init__(self, name, description):
+    def __init__(self, name, description, taken):
         self.name = name
         self.description = description
+        self.taken = taken
         
     def __str__(self, *args, **kwargs):
         return self.description
 
     def get_name(self):
         return self.name
-    
+
+    def can_be_taken(self):
+        return self.taken
+
 class KeyRoomOne(RoomObject):
     def __init__(self):
-        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.")
+        super(KeyRoomOne,self).__init__("key_room_one","A bright shiny brass key.", True)
     
 class VLrock(RoomObject):
     def __init__(self):
-        super(VLrock,self).__init__("Very large rock","A very large rock as tall as you are which the key is on top of.")
+        super(VLrock,self).__init__("Very large rock","A very large rock as tall as you!", False)
 
 class Chair(RoomObject):
     def __init__(self):
-        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.")
+        super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", False)

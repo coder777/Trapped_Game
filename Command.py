@@ -21,14 +21,14 @@ class Command(object):
     def get_name(self):
         return self.name
     
-    def run(self, *args):
+    def run(self, list_of_arguments):
         pass
     
 class Panic(Command):
     def __init__(self):
         super(Panic,self).__init__("panic")
         
-    def run(self, *args):
+    def run(self, list_of_arguments):
         print "You run around in a circle, shouting into the void."
 
 
@@ -36,8 +36,28 @@ class Sit(Command):
    def __init__(self):
 	super(Sit,self).__init__("sit")
 
-   def run(self, *args):
+   def run(self, list_of_arguments):
 	print "You decide to sit & rest and think of your next move."
+
+class Take(Command):
+    def __init__(self,inventory,objects_in_room):
+        super(Take,self).__init__("take")
+        self.objects_in_room = objects_in_room
+        self.inventory = inventory
+
+    def run(self, list_of_arguments):
+        if len(list_of_arguments) > 0:
+            object_be_taken = list_of_arguments[0]
+            if self.objects_in_room.find_object(object_be_taken):
+                if object_be_taken.can_be_taken():
+                    print "You take {0}".format(object_be_taken)
+                    self.inventory.add(object_be_taken)
+                else:
+                    print "You can't take {0}.".format(objects_be_taken)
+            else:
+                print "I can't find {0} to take.".format(object_be_taken)
+        else:
+            print "Not sure what you want take."
 
 class Climb(Command):
     def __init__(self,inventory,object_in_room):
