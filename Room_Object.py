@@ -37,3 +37,7 @@ class VLrock(RoomObject):
 class Chair(RoomObject):
     def __init__(self):
         super(Chair, self).__init__("chair", "A slightly rusty chair folding chair.", False)
+
+class Door(RoomObject):
+    def __init__(self):
+        super(Door,self).__init__("Door", "A large gothic door", False)
