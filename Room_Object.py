@@ -20,4 +20,8 @@ class RoomObject(object):
     def get_name(self):
         return self.name
     
+class KeyRoomOne(RoomObject):
+    def __init__(self):
+        super(KeyRoomOne,self).__init__("keyroomone","A bright shiny brass key.")
+    
 

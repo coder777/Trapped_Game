@@ -1,5 +1,5 @@
 from Command import Commands, Command, Panic
-from Room_Object import RoomObjects, RoomObject
+from Room_Object import RoomObjects, RoomObject, KeyRoomOne
 
 class Room(object):
     def __init__(self,commands,room_objects):
@@ -29,7 +29,7 @@ class Room(object):
 class FirstRoom(Room):
     def __init__(self):
         commands = Commands(Command("take"),Panic())
-        room_objects = RoomObjects(RoomObject("key","a shiny key"),RoomObject("door","a thick metal panel with a handle"))
+        room_objects = RoomObjects(KeyRoomOne(),RoomObject("door","a thick metal panel with a handle"))
         super(FirstRoom, self).__init__(commands,room_objects)
         self.done = False
         
